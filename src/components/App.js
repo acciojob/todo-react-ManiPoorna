@@ -18,6 +18,7 @@ const App = () => {
     // setTasks(tasks.filter((task)=>{
     //   return task!==e.target.parentNode.parentNode.children[0].value;
     // }))
+    console.log(e.target.parentNode.parentNode)
     e.target.parentNode.parentNode.remove()
   }
   return (
@@ -30,12 +31,9 @@ const App = () => {
         </form>
         {
           tasks && tasks.map((task,index)=>(
-            <table>
-              <tr key={index}>
-                <td>{task}</td>
-                <td><button onClick={(e)=>deleteTask(e)}>Delete</button></td>
-              </tr>
-            </table>
+            <ul type="none">
+              <li key={index}>{task} <button onClick={(e)=>deleteTask(e)}>Delete</button></li>
+            </ul>
           ))
         }
     </div>
