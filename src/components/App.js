@@ -18,8 +18,8 @@ const App = () => {
     // setTasks(tasks.filter((task)=>{
     //   return task!==e.target.parentNode.parentNode.children[0].value;
     // }))
-    console.log(e.target.parentNode.parentNode)
-    e.target.parentNode.parentNode.remove()
+    console.log(e.target.parentNode)
+    e.target.parentNode.remove()
   }
   return (
     <div>
@@ -29,13 +29,13 @@ const App = () => {
           <input type="text"  />
           <button type="submit" >Add ToDo</button>
         </form>
-        {
-          tasks && tasks.map((task,index)=>(
-            <ul type="none">
-              <li key={index}>{task} <button onClick={(e)=>deleteTask(e)}>Delete</button></li>
-            </ul>
-          ))
-        }
+        <ul type="none">
+            {
+              tasks && tasks.map((task,index)=>(
+                  <li key={index}>{task} <button onClick={(e)=>deleteTask(e)}>Delete</button></li>
+              ))
+            }
+        </ul>
     </div>
   )
 }
